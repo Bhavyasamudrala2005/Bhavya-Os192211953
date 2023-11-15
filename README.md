@@ -3,14 +3,23 @@
 ALGORITHAMIC STEPS:-
 
 1)Include the necessary header files, such as stdio.h and unistd.h.
+
 2)Declare two pid_t variables to store the process identifiers for the current process and the child process.
+
 3)Use the fork() system call to create a new child process. The fork() system call will return the child's PID in the parent process and 0 in the child process.
+
 4)Check the return value of fork():
+
 5)If it's less than 0, the fork failed, and you should display an error message and exit.
-6)If it's 0, it means you're in the child process, so you can display the child's PID using getpid() and the parent's PID using getppid().
+
+6)If it's 0, it means you're in the child process, so you can display the child's PID using getpid() and the parent's PID using getppid()
+.
 7)If it's greater than 0, you're in the parent process, so you can display the parent's PID using getpid() and the child's PID, which is the value returned by fork().
+
 8)Print the process identifiers and any other information you want to display.
+
 9)End the program.
+
 
 
 #2->COPY THE CONTENT OF ONE FILE TO OTHER:-
@@ -212,17 +221,26 @@ ALGORITHM STEPS:-
 4)Define a message structure with a message type (greater than 0) and a message text.
 5)Prompt the user to enter a message and store it in the message structure.
 6)Send the message to the message queue using msgsnd.
+
 7)End.
 
 =>Receiver (consumer.c):
 1)Start
+
 2)Generate the same unique key for the message queue using ftok.
+
 3)Get the message queue using msgget.
+
 4)Define a message structure with a message type (greater than 0) and a message text.
+
 5)Receive a message from the message queue using msgrcv.
+
 6)Display the received message from the message structure.
+
 7)Remove the message queue using msgctl.
+
 8)End.
+
 
 
 #11-> CONCEPT OF MULTITHREADING:-
@@ -231,11 +249,17 @@ ALGORITHM STEPS:-
 
 =>Main Program:
 1)Start
+
 2)Define constants NUM_THREADS (number of threads) and MAX_COUNT (maximum count per thread).
+
 3)Initialize a global integer variable counter to 0 to serve as a shared counter.
+
 4)Create a mutex using pthread_mutex_t mutex to protect the critical section.
+
 5)Create an array of pthread_t objects named threads.
+
 6)Create NUM_THREADS threads, each running the thread_function.
+
 7)Wait for all threads to complete using pthread_join.
 8)Display the final value of the shared counter.
 9)End. 
@@ -255,31 +279,54 @@ ALGORITHM STEPS:-
 =>Main Program:
 
 1)Start
+
 2)Create an array of pthread_t objects called philosophers.
+
 3)Initialize an array of semaphores called forks, with one semaphore per philosopher
+
 4)Initialize a semaphore called mutex to control access to the forks.
+
 5)Seed the random number generator.
+
 6)For each philosopher from 0 to NUM_PHILOSOPHERS - 1, create a thread running the philosopher function and passing its ID as an argument.
+
 7)Wait for all philosopher threads to complete using pthread_join.
+
 8)End.
 
 =>Philosopher Function (philosopher):
 1)Start
+
 2)Extract the philosopher's ID from the argument.
+
 3)Define variables left_fork and right_fork for the indices of the philosopher's left and right forks.
+
 4)Repeat indefinitely (philosopher's lifecycle):
+
 a. Think: Output that the philosopher is thinking.
+
 b. Sleep for a random duration to simulate thinking.
+
 c. Pick up left fork: Wait on the forks semaphore for the left fork.
+
 d. Output that the philosopher picked up the left fork.
+
 e. Pick up right fork: Wait on the forks semaphore for the right fork.
+
 f. Output that the philosopher picked up the right fork.
+
 g. Eat: Output that the philosopher is eating.
+
 h. Sleep for a random duration to simulate eating.
+
 i. Put down right fork: Signal the forks semaphore for the right fork.
+
 j. Output that the philosopher put down the right fork.
+
 k. Put down left fork: Signal the forks semaphore for the left fork.
+
 l. Output that the philosopher put down the left fork.
+
 5)End
 
 
