@@ -34,9 +34,9 @@ ALGORITHAMIC STEPS:-
 
 4)Open the source file for reading using the open() system call with the O_RDONLY flag. Check for errors in opening the source file.
 
-5)Open or create the destination file for writing using the open() system call with the O_WRONLY and O_CREAT flags. Specify file permissions (e.g., S_IRUSR | S_IWUSR) to allow reading and writing by the owner. Check for errors in opening/creating the destination file.
+5)Open or create the destination file for writing using the open() system call with the O_WRONLY and O_CREAT flags. Specify file permissions (e.g., S_IRUSR | S_IWUSR)
 
-6)Use a loop to read data from the source file in chunks of BUFFER_SIZE bytes using the read() system call. Continue until the end of the source file is reached.Check for errors during reading.
+6)Use a loop to read data from the source file in chunks of BUFFER_SIZE bytes using the read() system call. C
 
 7)Write the read data to the destination file using the write() system call. Check for errors during writing.
 
